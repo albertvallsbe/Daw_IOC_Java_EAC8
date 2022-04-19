@@ -10,13 +10,11 @@ import java.util.Scanner;
  *
  * @author fta
  */
-public class Botiga { 
+public class Botiga extends Servei{ 
     
     private final static Scanner DADES = new Scanner(System.in);
     
-    private String codi;
-    private String nom;
-    private String tipus;
+    
 
     /*
      TODO CONSTRUCTOR
@@ -28,37 +26,13 @@ public class Botiga {
      */
 
     public Botiga(String codi, String nom, String tipusProductes) {
-        this.codi = codi;
-        this.nom = nom;
-        this.tipus = tipusProductes;
+        super(codi, nom, tipusProductes);
+        
     }
 
     /*
      TODO Heu d'implementar tots els mètodes accessors possibles.  
      */
-    public String getCodi() {
-        return codi;
-    }
-
-    public void setCodi(String codi) {
-        this.codi = codi;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getTipus() {
-        return tipus;
-    }
-
-    public void setTipus(String tipus) {
-        this.tipus = tipus;
-    }
     
     /*
     TODO
@@ -101,7 +75,7 @@ public class Botiga {
      
      Retorn: cap
      */
-    public void updateBotiga() {
+    public void updateBotiga(String codi, String nom, String tipus) {
         System.out.println("\nCodi de la botiga: " + codi);
         System.out.println("\nEntra el nou codi:");
         codi = DADES.next();
@@ -114,7 +88,7 @@ public class Botiga {
         tipus = DADES.nextLine();
     }
     
-    public void showBotiga() {
+    public void showBotiga(String codi, String nom, String tipus) {
         System.out.println("\nLes dades de la botiga amb codi " + codi + " són:");
         System.out.println("\nNom: " + nom);
         System.out.println("\nTipus de productes: " + tipus);

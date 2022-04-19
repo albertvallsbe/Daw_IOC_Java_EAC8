@@ -10,13 +10,11 @@ import java.util.Scanner;
  *
  * @author fta
  */
-public class Restaurant {
+public class Restaurant extends Servei{
     
     private final static Scanner DADES = new Scanner(System.in);
 
-    private String codi;
-    private String nom;
-    private String tipus;
+   
     private String espectacle;
 
     /*
@@ -32,38 +30,14 @@ public class Restaurant {
     fer res especial.
      */
     public Restaurant(String codi, String nom, String tipusProductes, String espectacle) {
-        this.codi = codi;
-        this.nom = nom;
-        this.tipus = tipusProductes;
+        super(codi, nom, tipusProductes);
         this.espectacle = espectacle;
     }
 
     /*
      TODO Heu d'implementar tots els mètodes accessors possibles.  
      */
-    public String getCodi() {
-        return codi;
-    }
-
-    public void setCodi(String codi) {
-        this.codi = codi;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getTipus() {
-        return tipus;
-    }
-
-    public void setTipus(String tipus) {
-        this.tipus = tipus;
-    }
+   
 
     public String getEspectacle() {
         return espectacle;
@@ -118,7 +92,7 @@ public class Restaurant {
      
      Retorn: cap
      */
-    public void updateRestaurant() {
+    public void updateRestaurant(String codi, String nom, String tipus) { // afegits els parametres*************
         System.out.println("\nCodi del restaurant: " + codi);
         System.out.println("\nEntra el nou codi:");
         codi = DADES.next();
@@ -134,7 +108,7 @@ public class Restaurant {
         espectacle = DADES.nextLine();
     }
 
-    public void showRestaurant() {
+    public void showRestaurant(String codi, String nom, String tipus) { // afegits els parametres************
         System.out.println("\nLes dades del restaurant amb codi " + codi + " són:");
         System.out.println("\nNom: " + nom);
         System.out.println("\nTipus de menjar: " + tipus);
