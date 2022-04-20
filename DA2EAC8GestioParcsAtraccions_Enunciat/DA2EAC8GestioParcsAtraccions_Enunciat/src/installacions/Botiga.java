@@ -75,7 +75,7 @@ public class Botiga extends Servei{
      
      Retorn: cap
      */
-    public void updateBotiga(String codi, String nom, String tipus) {
+    public void updateBotiga() {
         System.out.println("\nCodi de la botiga: " + codi);
         System.out.println("\nEntra el nou codi:");
         codi = DADES.next();
@@ -88,7 +88,7 @@ public class Botiga extends Servei{
         tipus = DADES.nextLine();
     }
     
-    public void showBotiga(String codi, String nom, String tipus) {
+    public void showBotiga() {
         System.out.println("\nLes dades de la botiga amb codi " + codi + " són:");
         System.out.println("\nNom: " + nom);
         System.out.println("\nTipus de productes: " + tipus);

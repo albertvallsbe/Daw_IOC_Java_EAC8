@@ -11,12 +11,13 @@ import java.util.Scanner;
  *
  * @author Albert
  */
-public class Servei {
+public abstract class Servei {
+
     private final static Scanner DADES = new Scanner(System.in);
-    
-    private String codi;
-    private String nom;
-    private String tipus;
+
+    String codi;
+    String nom;
+    String tipus;
 
     public Servei(String codi, String nom, String tipus) {
         this.codi = codi;
@@ -47,5 +48,5 @@ public class Servei {
     public void setTipus(String tipus) {
         this.tipus = tipus;
     }
-    
+
 }

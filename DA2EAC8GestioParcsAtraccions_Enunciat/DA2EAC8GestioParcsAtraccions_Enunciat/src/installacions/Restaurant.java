@@ -90,9 +90,9 @@ public class Restaurant extends Servei{
      - Si el restaurant no ofereix cap espectacle, l'usuari no introduirà cap valor.
      - Li heu de mostrar a l'usuari els valors dels atributs abans de modificar-los.
      
-     Retorn: cap
+     Retorn: cap ********String codi, String nom, String tipus
      */
-    public void updateRestaurant(String codi, String nom, String tipus) { // afegits els parametres*************
+    public void updateRestaurant() { // afegits els parametres*************
         System.out.println("\nCodi del restaurant: " + codi);
         System.out.println("\nEntra el nou codi:");
         codi = DADES.next();
@@ -108,8 +108,8 @@ public class Restaurant extends Servei{
         espectacle = DADES.nextLine();
     }
 
-    public void showRestaurant(String codi, String nom, String tipus) { // afegits els parametres************
-        System.out.println("\nLes dades del restaurant amb codi " + codi + " són:");
+    public void showRestaurant() { // afegits els parametres************ 
+       System.out.println("\nLes dades del restaurant amb codi " + codi + " són:");
         System.out.println("\nNom: " + nom);
         System.out.println("\nTipus de menjar: " + tipus);
         
