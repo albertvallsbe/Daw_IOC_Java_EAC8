@@ -9,25 +9,29 @@ import java.util.Scanner;
 import installacions.Atraccio;
 import installacions.Restaurant;
 import installacions.Botiga;
+import installacions.Installacio;
 
 /**
  *
  * @author fta
  */
-public class Parc {
+public class Parc implements Installacio {
 
     private final static Scanner DADES = new Scanner(System.in);
 
     private String nom;
     private String adreca;
-    private Atraccio[] atraccions = new Atraccio[200];
-    private int pAtraccions = 0; //Priemra posició buida de l'array d'atraccions
-    private Restaurant[] restaurants = new Restaurant[50];
-    private int pRestaurants = 0; //Priemra posició buida de l'array de restaurants
-    private Botiga[] botigues = new Botiga[50];
-    private int pBotigues = 0; //Priemra posició buida de l'array de botigues
+    private Installacio[] installacions = new Installacio[300];
+    private int pInstallacions = 0;
 
-    /*
+    /*private Atraccio[] atraccions = new Atraccio[200];
+        private int pAtraccions = 0; //Priemra posició buida de l'array d'atraccions
+        private Restaurant[] restaurants = new Restaurant[50];
+        private int pRestaurants = 0; //Priemra posició buida de l'array de restaurants
+        private Botiga[] botigues = new Botiga[50];
+        private int pBotigues = 0; //Priemra posició buida de l'array de botigues
+     */
+ /*
      TODO CONSTRUCTOR
     
      Paràmetres: valors per tots els atributs de la classe menys els arrays.
@@ -59,55 +63,72 @@ public class Parc {
         this.adreca = adreca;
     }
 
-    public Atraccio[] getAtraccions() {
-        return atraccions;
+    public Installacio[] getInstallacions() {
+        return installacions;
     }
 
-    public void setAtraccions(Atraccio[] atraccions) {
-        this.atraccions = atraccions;
+    public void setInstallacions(Installacio[] installacions) {
+        this.installacions = installacions;
     }
 
-    public int getpAtraccions() {
-        return pAtraccions;
+    public int getpInstallacions() {
+        return pInstallacions;
     }
 
-    public void setpAtraccions(int pAtraccions) {
-        this.pAtraccions = pAtraccions;
-    }
-
-    public Restaurant[] getRestaurants() {
-        return restaurants;
-    }
-
-    public void setRestaurants(Restaurant[] restaurants) {
-        this.restaurants = restaurants;
-    }
-
-    public int getpRestaurants() {
-        return pRestaurants;
-    }
-
-    public void setpRestaurants(int pRestaurants) {
-        this.pRestaurants = pRestaurants;
-    }
-
-    public Botiga[] getBotigues() {
-        return botigues;
-    }
-
-    public void setBotigues(Botiga[] botigues) {
-        this.botigues = botigues;
-    }
-
-    public int getpBotigues() {
-        return pBotigues;
-    }
-
-    public void setpBotigues(int pBotigues) {
-        this.pBotigues = pBotigues;
+    public void setpInstallacions(int pInstallacions) {
+        this.pInstallacions = pInstallacions;
     }
 
     /*
+        public Atraccio[] getAtraccions() {
+            return atraccions;
+        }
+
+        public void setAtraccions(Atraccio[] atraccions) {
+            this.atraccions = atraccions;
+        }
+
+        public int getpAtraccions() {
+            return pAtraccions;
+        }
+
+        public void setpAtraccions(int pAtraccions) {
+            this.pAtraccions = pAtraccions;
+        }
+
+        public Restaurant[] getRestaurants() {
+            return restaurants;
+        }
+
+        public void setRestaurants(Restaurant[] restaurants) {
+            this.restaurants = restaurants;
+        }
+
+        public int getpRestaurants() {
+            return pRestaurants;
+        }
+
+        public void setpRestaurants(int pRestaurants) {
+            this.pRestaurants = pRestaurants;
+        }
+
+        public Botiga[] getBotigues() {
+            return botigues;
+        }
+
+        public void setBotigues(Botiga[] botigues) {
+            this.botigues = botigues;
+        }
+
+        public int getpBotigues() {
+            return pBotigues;
+        }
+
+        public void setpBotigues(int pBotigues) {
+            this.pBotigues = pBotigues;
+        }
+     */
+ /*
      TODO
     
      Paràmetres: cap
@@ -177,35 +198,81 @@ public class Parc {
     
      Retorn: cap
      */
-    public void addAtraccio() {
-
-        Atraccio novaAtraccio = Atraccio.addAtraccio();
-
-        if (selectAtraccio(novaAtraccio.getCodi()) == -1) {
-            atraccions[pAtraccions] = novaAtraccio;
-            pAtraccions++;
-        } else {
-            System.out.println("\nL'atracció ja existeix");
-        }
-    }
-
-    public int selectAtraccio(String codi) {
-
+    
+    public int selectInstallacio(int tipusInstallacio, String codi) {
+        int i = 0;
         if (codi == null) {
             System.out.println("\nCodi de l'atracció?:");
             codi = DADES.next();
         }
 
-        for (int i = 0; i < pAtraccions; i++) {
-            if (atraccions[i].getCodi().equals(codi)) {
-                return i;
-            }
+        switch (tipusInstallacio) {
+            case 1:
+                if (installacions[i] instanceof Atraccio) {
+                    if (((Atraccio) installacions[i]).getCodi().equals(codi)) {
+                        return i;
+                    }
+                    
+                }   break;
+            case 2:
+                if (installacions[i] instanceof Botiga) {
+                    if (((Botiga) installacions[i]).getCodi().equals(codi)) {
+                        return i;
+                    }
+                    
+                }   break;
+            case 3:
+                if (installacions[i] instanceof Restaurant) {
+                    if (((Restaurant) installacions[i]).getCodi().equals(codi)) {
+                        return i;
+                    }
+                    
+                }   break;
+            default:
+                break;
         }
+        
 
         return -1;
     }
+    
+    public void addAtraccio() {
+
+        Installacio novaAtraccio = (Installacio) Atraccio.addAtraccio();
+
+        if (selectInstallacio (((Installacio) novaAtraccio).getCodi()) == -1) {
+            installacions[pInstallacions] = novaAtraccio;
+            pInstallacions++;
+
+            /*
+            atraccions[pAtraccions] = novaAtraccio;
+            pAtraccions++;
+             */
+        } else {
+            System.out.println("\nL'atracció ja existeix");
+        }
+    }
+
+    
 
     /*
+        public int selectAtraccio(String codi) {
+
+            if (codi == null) {
+                System.out.println("\nCodi de l'atracció?:");
+                codi = DADES.next();
+            }
+
+            for (int i = 0; i < pAtraccions; i++) {
+                if (atraccions[i].getCodi().equals(codi)) {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+     */
+ /*
      BOTIGA
      */
  /*
@@ -224,33 +291,35 @@ public class Parc {
      */
     public void addBotiga() {
 
-        Botiga novaBotiga = Botiga.addBotiga();
+        Installacio novaBotiga = (Installacio) Botiga.addBotiga();
 
-        if (selectBotiga(novaBotiga.getCodi()) == -1) {
-            botigues[pBotigues] = novaBotiga;
-            pBotigues++;
+        if (selectInstallacio(((Installacio) novaBotiga).getCodi()) == -1) {
+            installacions[pInstallacions] = (Installacio) novaBotiga;
+            pInstallacions++;
+
         } else {
             System.out.println("\nLa Botiga ja existeix");
         }
     }
 
-    public int selectBotiga(String codi) {
-
-        if (codi == null) {
-            System.out.println("\nCodi de la botiga?:");
-            codi = DADES.next();
-        }
-
-        for (int i = 0; i < pBotigues; i++) {
-            if (botigues[i].getCodi().equals(codi)) {
-                return i;
-            }
-        }
-
-        return -1;
-    }
-
     /*
+        public int selectBotiga(String codi) {
+
+            if (codi == null) {
+                System.out.println("\nCodi de la botiga?:");
+                codi = DADES.next();
+            }
+
+            for (int i = 0; i < pBotigues; i++) {
+                if (botigues[i].getCodi().equals(codi)) {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+     */
+ /*
      RESTAURANT
      */
  /*
@@ -268,30 +337,41 @@ public class Parc {
      Retorn: cap
      */
     public void addRestaurant() {
-        Restaurant nouRestaurant = Restaurant.addRestaurant();
+        Installacio nouRestaurant = (Installacio) Restaurant.addRestaurant();
 
-        if (selectRestaurant(nouRestaurant.getCodi()) == -1) {
-            restaurants[pRestaurants] = nouRestaurant;
-            pRestaurants++;
+        if (selectInstallacio(((Installacio) nouRestaurant).getCodi()) == -1) {
+            installacions[pInstallacions] = (Installacio) nouRestaurant;
+            pInstallacions++;
         } else {
             System.out.println("\nEl restaurant ja existeix");
         }
 
     }
 
-    public int selectRestaurant(String codi) {
+    /*
+            public int selectRestaurant(String codi) {
 
-        if (codi == null) {
-            System.out.println("\nCodi del restaurant?:");
-            codi = DADES.next();
-        }
+                if (codi == null) {
+                    System.out.println("\nCodi del restaurant?:");
+                    codi = DADES.next();
+                }
 
-        for (int i = 0; i < pRestaurants; i++) {
-            if (restaurants[i].getCodi().equals(codi)) {
-                return i;
+                for (int i = 0; i < pRestaurants; i++) {
+                    if (restaurants[i].getCodi().equals(codi)) {
+                        return i;
+                    }
+                }
+
+                return -1;
             }
-        }
+     */
+    @Override
+    public void updateInstallacio() {
+        System.out.println(this);
+    }
 
-        return -1;
+    @Override
+    public void showInstallacio() {
+        System.out.println(this);
     }
 }

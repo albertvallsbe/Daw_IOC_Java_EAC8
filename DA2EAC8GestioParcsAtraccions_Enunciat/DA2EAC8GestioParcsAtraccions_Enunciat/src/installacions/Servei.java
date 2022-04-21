@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Albert
  */
-public abstract class Servei {
+public abstract class Servei implements Installacio {
 
     private final static Scanner DADES = new Scanner(System.in);
 
@@ -48,5 +48,11 @@ public abstract class Servei {
     public void setTipus(String tipus) {
         this.tipus = tipus;
     }
+
+    @Override
+    public abstract void showInstallacio();
+
+    @Override
+    public abstract void updateInstallacio();
 
 }

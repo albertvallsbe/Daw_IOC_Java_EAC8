@@ -92,7 +92,38 @@ public class Restaurant extends Servei{
      
      Retorn: cap ********String codi, String nom, String tipus
      */
-    public void updateRestaurant() { // afegits els parametres*************
+    /*
+    public void updateRestaurant() { 
+        System.out.println("\nCodi del restaurant: " + codi);
+        System.out.println("\nEntra el nou codi:");
+        codi = DADES.next();
+        DADES.nextLine(); //Neteja buffer
+        System.out.println("\nNom del restaurant: " + nom);
+        System.out.println("\nEntra el nou nom:");
+        nom = DADES.nextLine();
+        System.out.println("\nTipus de menjar que serveix el restaurant: " + tipus);
+        System.out.println("\nEntra el nou tipus de menjar:");
+        tipus = DADES.nextLine();
+        System.out.println("\nEspectacle que ofereix el restaurant:"+espectacle);
+        System.out.println("\nEntra el nou tipus d'espectacle:");
+        espectacle = DADES.nextLine();
+    }
+*/
+/*
+    public void showRestaurant() { // afegits els parametres************ 
+       System.out.println("\nLes dades del restaurant amb codi " + codi + " són:");
+        System.out.println("\nNom: " + nom);
+        System.out.println("\nTipus de menjar: " + tipus);
+        
+        if(espectacle==null||espectacle.isEmpty()){
+            System.out.println("\nEl resturant no ofereix cap espectacle");
+        }else{
+            System.out.println("\nEspectacle: " + espectacle);
+        }
+    }
+    */
+    @Override
+    public void updateInstallacio() {
         System.out.println("\nCodi del restaurant: " + codi);
         System.out.println("\nEntra el nou codi:");
         codi = DADES.next();
@@ -108,8 +139,9 @@ public class Restaurant extends Servei{
         espectacle = DADES.nextLine();
     }
 
-    public void showRestaurant() { // afegits els parametres************ 
-       System.out.println("\nLes dades del restaurant amb codi " + codi + " són:");
+    @Override
+    public void showInstallacio() {
+        System.out.println("\nLes dades del restaurant amb codi " + codi + " són:");
         System.out.println("\nNom: " + nom);
         System.out.println("\nTipus de menjar: " + tipus);
         

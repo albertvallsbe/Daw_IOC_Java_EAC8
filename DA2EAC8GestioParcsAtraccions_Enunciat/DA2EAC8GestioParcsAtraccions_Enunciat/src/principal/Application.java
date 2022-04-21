@@ -20,7 +20,7 @@ public class Application {
 
     private static void menuPrincipal() {
         int opcio = 0;
-
+        int tipusInstallacio = 0;
         do {
             System.out.println("\nSelecciona una opció");
             System.out.println("\n0. Sortir");
@@ -38,21 +38,24 @@ public class Application {
                     break;
                 case 2:
                     if (parcActual != null) {
-                        menuAtraccions();
+                        tipusInstallacio = 1;
+                        menuInstallacions(tipusInstallacio);
                     } else {
                         System.out.println("\nPrimer s'ha de seleccionar el parc al menú Gestió de parcs");
                     }
                     break;
                 case 3:
                     if (parcActual != null) {
-                        menuBotigues();
+                        tipusInstallacio = 2;
+                        menuInstallacions(tipusInstallacio);
                     } else {
                         System.out.println("\nPrimer s'ha de seleccionar el parc al menú Gestió de parcs");
                     }
                     break;
                 case 4:
                     if (parcActual != null) {
-                        menuRestaurants();
+                        tipusInstallacio = 3;
+                        menuInstallacions(tipusInstallacio);
                     } else {
                         System.out.println("\nPrimer s'ha de seleccionar el parc al menú Gestió de parcs");
                     }
@@ -111,6 +114,56 @@ public class Application {
         } while (opcio != 0);
     }
 
+    public static void menuInstallacions(int tipusInstallacio) {
+        int opcio = 0;
+
+        do {
+            System.out.println("\nSelecciona una opció");
+            System.out.println("\n0. Sortir");
+            System.out.println("\n1. Alta Instal·lacio");
+            System.out.println("\n2. Modificar");
+            System.out.println("\n3. Llista d'Instal·lacions");
+            opcio = DADES.nextInt();
+            switch (opcio) {
+                case 0:
+                    break;
+                case 1:
+                    switch (tipusInstallacio) {
+                        case 1:
+                             parcActual.addAtraccio();
+                            break;
+                        case 2:
+                             parcActual.addBotiga();
+                            break;
+                        case 3:
+                             parcActual.addRestaurant();
+                            break;
+                        default:
+                            break;
+                    }
+                   
+                    break;
+
+                case 2:
+                    int indexSel = parcActual.selectInstallacio(tipusInstallacio, null);
+                    if (indexSel >= 0) {
+                        parcActual.getInstallacions()[indexSel].updateInstallacio();
+                    } else {
+                        System.out.println("\nNo existeix aquesta atracció");
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < parcActual.getpInstallacions(); i++) {
+                        parcActual.getInstallacions()[i].showInstallacio();
+                    }
+                    break;
+                default:
+                    System.out.println("\nS'ha de seleccionar una opció correcta del menú.");
+                    break;
+            }
+        } while (opcio != 0);
+    }
+
     /*
      TODO Heu de desenvolupar el menuAtraccions amb les opcions que podeu veure.
      Nota: penseu que quan arribem aquí, l'atribut parcActual no és null
@@ -128,6 +181,8 @@ public class Application {
      "S'ha de seleccionar una opció correcta del menú."
      - definiu una variable opcio de tipus enter
      */
+
+ /*
     public static void menuAtraccions() {
         int opcio = 0;
 
@@ -163,8 +218,9 @@ public class Application {
             }
         } while (opcio != 0);
     }
+     */
 
-    /*
+ /*
      TODO Heu de desenvolupar el menuBotigues amb les opcions que podeu veure.
      Nota: penseu que quan arribem aquí, l'atribut parcActual no és null
        
@@ -181,6 +237,7 @@ public class Application {
      "S'ha de seleccionar una opció correcta del menú."
      - definiu una variable opcio de tipus enter
      */
+ /*
     public static void menuBotigues() {
         int opcio = 0;
 
@@ -216,8 +273,8 @@ public class Application {
             }
         } while (opcio != 0);
     }
-
-    /*
+     */
+ /*
      TODO Heu de desenvolupar el menuRestaurants amb les opcions que podeu veure.
      Nota: penseu que quan arribem aquí, l'atribut parcActual no és null
        
@@ -234,6 +291,7 @@ public class Application {
      "S'ha de seleccionar una opció correcta del menú."
      - definiu una variable opcio de tipus enter
      */
+ /*
     public static void menuRestaurants() {
         int opcio = 0;
 
@@ -269,8 +327,7 @@ public class Application {
             }
         } while (opcio != 0);
     }
-    
-    
+     */
     public static Integer selectParc() {
 
         System.out.println("\nNom del parc?:");
@@ -284,4 +341,5 @@ public class Application {
         }
         return -1;
     }
+
 }

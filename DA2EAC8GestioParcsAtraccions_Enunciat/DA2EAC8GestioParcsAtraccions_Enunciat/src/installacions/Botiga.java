@@ -75,6 +75,7 @@ public class Botiga extends Servei{
      
      Retorn: cap
      */
+    /*
     public void updateBotiga() {
         System.out.println("\nCodi de la botiga: " + codi);
         System.out.println("\nEntra el nou codi:");
@@ -87,8 +88,31 @@ public class Botiga extends Servei{
         System.out.println("\nEntra el nou tipus de productes:");
         tipus = DADES.nextLine();
     }
-    
+    */
+    /*
     public void showBotiga() {
+        System.out.println("\nLes dades de la botiga amb codi " + codi + " són:");
+        System.out.println("\nNom: " + nom);
+        System.out.println("\nTipus de productes: " + tipus);
+    }
+    */
+    @Override
+    public void updateInstallacio() {
+        System.out.println(this);
+        System.out.println("\nCodi de la botiga: " + codi);
+        System.out.println("\nEntra el nou codi:");
+        codi = DADES.next();
+        DADES.nextLine(); //Neteja buffer
+        System.out.println("\nNom de la botiga: " + nom);
+        System.out.println("\nEntra el nou nom:");
+        nom = DADES.nextLine();
+        System.out.println("\nTipus de productes que trobem en la botiga: " + tipus);
+        System.out.println("\nEntra el nou tipus de productes:");
+        tipus = DADES.nextLine();
+    }
+
+    @Override
+    public void showInstallacio() {
         System.out.println("\nLes dades de la botiga amb codi " + codi + " són:");
         System.out.println("\nNom: " + nom);
         System.out.println("\nTipus de productes: " + tipus);

@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author fta
  */
-public class Atraccio {
+public class Atraccio implements Installacio{
     
     private final static Scanner DADES = new Scanner(System.in);
     
@@ -115,7 +115,7 @@ public class Atraccio {
      
     Retorn: cap
      */
-    public void updateAtraccio() {
+    /*public void updateAtraccio() {
         System.out.println("\nCodi de l'atracció: " + codi);
         System.out.println("\nEntra el nou codi:");
         codi = DADES.next();
@@ -130,8 +130,36 @@ public class Atraccio {
         System.out.println("\nEntra la nova intensitat:");
         intensitat = DADES.nextInt();
     }
+    */
     
-    public void showAtraccio() {
+    /*public void showAtraccio() {
+        System.out.println("\nLes dades de l'Atracció amb codi " + codi + " són:");
+        System.out.println("\nNom: " + nom);
+        System.out.println("\nAlçada mínima: " + alcadaMinima);
+        System.out.println("\nIntensitat: " + intensitat);
+    }*/
+
+    @Override
+    public void updateInstallacio() {
+        System.out.println(this);
+        System.out.println("\nCodi de l'atracció: " + codi);
+        System.out.println("\nEntra el nou codi:");
+        codi = DADES.next();
+        DADES.nextLine(); //Neteja buffer
+        System.out.println("\nNom de l'atracció: " + nom);
+        System.out.println("\nEntra el nou nom:");
+        nom = DADES.nextLine();
+        System.out.println("\nAlçada mínima per accedir a l'atracció: " + alcadaMinima);
+        System.out.println("\nEntra la nova alçada mínima:");
+        alcadaMinima = DADES.nextDouble();
+        System.out.println("\nIntensitat de l'atracció: " + intensitat);
+        System.out.println("\nEntra la nova intensitat:");
+        intensitat = DADES.nextInt();
+    }
+
+    @Override
+    public void showInstallacio() {
+        System.out.println(this);
         System.out.println("\nLes dades de l'Atracció amb codi " + codi + " són:");
         System.out.println("\nNom: " + nom);
         System.out.println("\nAlçada mínima: " + alcadaMinima);
